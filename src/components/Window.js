@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import './Window.css';
-import Item from './Item.js';
-import Test from './Test';
 
 export class Window extends Component {
     render() {
@@ -23,9 +21,8 @@ export class Window extends Component {
                         </div>
                         <div className="inventory">
                             <h2>Your Inventory</h2>
-                            <div>{Item}</div>
                             <ul>
-                                <li></li>
+                                <li>Clue 1</li>
                                 <li>Clue 2</li>
                                 <li>Clue 2</li>
                                 <li>Clue 2</li>
