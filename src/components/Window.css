@@ -1,0 +1,27 @@
+.mainWindow {
+    overflow: hidden;
+}
+
+.background img{
+    width: 100vw;
+    height: 65vh;
+}
+
+.dialogueBox {
+    border: 5px red solid;
+    /* position:relative;
+    bottom:300px;
+    left:0px; */
+    display: flex;
+    flex-direction: row;
+}
+
+.speaker img {
+    width: 200px;
+    height: auto;
+}
+
+.textBox {
+    background-color: rgba(128, 128, 128, 0.8);
+    border: 5px solid black;
+}
