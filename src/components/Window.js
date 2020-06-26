@@ -1,36 +1,67 @@
 import React, { Component } from 'react'
 import './Window.css';
+import {Switch, Route, Link} from 'react-router-dom';
+
+import Item from './Item';
+import Locations from './Locations';
+import CrimeScene from './CrimeScene';
+import Office from './Office';
+import Restaurant from './Restaurant';
+import CruiseDeck from './CruiseDeck';
 
 export class Window extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state= {
+            clues: [],
+            locations: [],
+            persons: [],
+            suspects: [],
+            facts: [] 
+        }
+    }
     render() {
         return (
             <div className="mainWindow">
-                <div className="background">
-                    <img src="/images/bedroom.jpg"/>
-                    <div className="dialogueBox">
-                        <div className="speaker">
-                            <img src="/images/characterModels/actresslaugh.PNG"/>
-                        </div>
-                        <div className="textBox">
-                            This is where the story text will go. Things will be happening here.  These are words in the story.<br/>
-                            <ul>
-                                <li>Player Choice</li>
-                                <li>Player Choice</li>
-                                <li>Player Choice</li>
-                            </ul>
-                        </div>
+                <Switch>
+                    <Route
+                        exact
+                        path="/"
+                        component={Office}/>
+                    <Route
+                        exact
+                        path="/crimescene"
+                        component={CrimeScene}>
+                    </Route>
+                    <Route
+                        exact
+                        path="/restaurant"
+                        component={Restaurant}>
+                    </Route>
+                    <Route
+                        exact
+                        path="/cruisedeck"
+                        component={CruiseDeck}>
+                    </Route>
+                    
+                </Switch>
+                <div className="controls">
+                        <div className="locationList"><Locations/></div>
                         <div className="inventory">
                             <h2>Your Inventory</h2>
                             <ul>
-                                <li>Clue 1</li>
-                                <li>Clue 2</li>
-                                <li>Clue 2</li>
-                                <li>Clue 2</li>
-                                <li>Clue 2</li>
+                                <li><Item/></li>
+                                <li><Item/></li>
+                                <li><Item/></li>
+                                <li><Item/></li>
+                                <li><Item/></li>
                             </ul>
                         </div>
-                    </div>
                 </div>
+                    
+                
             </div>
         )
     }
