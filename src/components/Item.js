@@ -16,11 +16,13 @@ export class Item extends Component {
     render() {
         return (
             <div className="Item">
+
                 <h3>{this.props.clues[0]}</h3>
                 <h3>{this.props.clues[1]}</h3>
                 <h3>{this.props.clues[2]}</h3>
                 <h3>{this.props.clues[3]}</h3>
                 <h3>{this.props.clues[4]}</h3>
+
             </div>
         )
     }
