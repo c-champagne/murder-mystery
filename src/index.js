@@ -4,11 +4,37 @@ import './index.css';
 import Window from './components/Window';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+const initialState = {
+  clues: [],
+  locations: [],
+  suspects: [],
+  facts: [] 
+}
+
+const reducer = (state = initialState, action) => {
+  switch(action.type) {
+    case 'ADD_CLUE':
+      return {
+        ...state,
+        clues: state.clues.concat(action.payload.clue)
+      }
+    default:
+      return state;
+  }
+}
+
+const store = createStore(reducer);
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    <Provider store={store}>
     <Window />
+    </Provider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,5 +1,6 @@
 .mainWindow {
     overflow: hidden;
+    border: 5px blue solid
 }
 
 .background img{
@@ -31,5 +32,13 @@
 .controls {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.locationList {
+    border: 5px green solid;
+}
+
+.inventory {
+    border: 5px orange solid;
 }
