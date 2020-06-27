@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Window.css';
 import {Switch, Route, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import Item from './Item';
 import Locations from './Locations';
@@ -10,18 +11,11 @@ import Restaurant from './Restaurant';
 import CruiseDeck from './CruiseDeck';
 
 export class Window extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state= {
-            clues: [],
-            locations: [],
-            suspects: [],
-            facts: [] 
-        }
-    }
+    
     render() {
+         /* const cluesJSX = this.props.clues.map ((clue, index) => {
+            return <Item key={index} {...clue}/>
+        }) */ 
         return (
             <div className="mainWindow">
                 <Switch>
@@ -50,13 +44,7 @@ export class Window extends Component {
                         <div className="locationList"><Locations/></div>
                         <div className="inventory">
                             <h2>Your Inventory</h2>
-                            <ul>
-                                <li><Item/></li>
-                                <li><Item/></li>
-                                <li><Item/></li>
-                                <li><Item/></li>
-                                <li><Item/></li>
-                            </ul>
+                            <Item/>
                         </div>
                 </div>
                     
@@ -66,4 +54,21 @@ export class Window extends Component {
     }
 }
 
-export default Window
+const mapStateToProps = (state) => {  //
+    return { 
+        ...state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addClue: () => {    
+            return dispatch({type: 'ADD_CLUE', payload: {clue: "Missing earring"}})
+        },
+        lose: () => {
+            return dispatch({type: 'YOU_LOSE', payload: {points: 50}})
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Window)
