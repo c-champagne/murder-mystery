@@ -16,7 +16,7 @@ export class Item extends Component {
     render() {
         return (
             <div className="Item">
-                <h3>Item Name</h3>
+                <h3>{this.state.clueName}</h3>
             </div>
         )
     }
