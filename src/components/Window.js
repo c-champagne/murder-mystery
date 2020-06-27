@@ -17,7 +17,6 @@ export class Window extends Component {
         this.state= {
             clues: [],
             locations: [],
-            persons: [],
             suspects: [],
             facts: [] 
         }

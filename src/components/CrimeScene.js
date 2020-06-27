@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Window.css';
 class CrimeScene extends Component {
+
     render() {
         return (
             <div>
