@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import './Window.css';
 import {Switch, Route, Link} from 'react-router-dom';
 import {connect } from 'react-redux';
+import Dialogue from './Dialogue'
 
 class CrimeScene extends Component {
 
- componentDidMount() {
+ /* componentDidMount() {
     this.props.addClue()
-} 
+}  */
 
     render() {
         return (
@@ -19,17 +20,17 @@ class CrimeScene extends Component {
                     </map>
                 </div>
                     <div className="dialogueBox">
-                        <div className="speaker">
+                    <Dialogue/>
+                        {/* <div className="speaker">
                             <img src="/images/characterModels/wifeneutral.PNG"/>
-                        </div>
-                        <div className="leftBox">
+                        </div> */}
+                        {/* <div className="leftBox">
                             <div className="textBox">
                                 <p>You arrive at the crime scene.  The murder victim's wife is here.</p><br/>
+                               
                                 <span>WIFE: "Oh, it's you, detective. Have you seen my other earring?  I can't remember if I saw it before or after... this happened.  Could you check with the housekeeper?"</span>
-                            <div className="test">
-                                Testing</div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     </div>
         )
