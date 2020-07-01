@@ -43,7 +43,7 @@ export class Window extends Component {
                 <div className="controls">
                         <div className="locationList"><Locations/></div>
                         <div className="inventory">
-                            <h2>Your Inventory</h2>
+                            <h2>Your Clues</h2>
                             <Item/>
                         </div>
                 </div>

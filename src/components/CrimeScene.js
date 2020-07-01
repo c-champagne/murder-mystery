@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './Window.css';
 import {Switch, Route, Link} from 'react-router-dom';
 import {connect } from 'react-redux';
-import Dialogue from './Dialogue'
+import Dialogue from './WifeDialogue'
 
 class CrimeScene extends Component {
 
  /* componentDidMount() {
     this.props.addClue()
 }  */
+
+
 
     render() {
         return (
