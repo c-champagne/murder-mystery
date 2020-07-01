@@ -1,0 +1,9 @@
+.dialogueContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.textBox p {
+    font-style: italic;
+}
