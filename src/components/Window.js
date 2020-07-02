@@ -64,9 +64,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addClue: () => {    
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Missing earring"}})
-        },
-        lose: () => {
-            return dispatch({type: 'YOU_LOSE', payload: {points: 50}})
         }
     }
 }

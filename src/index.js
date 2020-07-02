@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Window from './components/Window';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
@@ -21,13 +21,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         clues: state.clues.concat(action.payload.clue)
       }
+      case 'ADD_LOCATION':
+        return {
+          ...state,
+          locations: state.locations.concat(action.payload.location)
+        }
     default:
       return state;
   }
 }
 
-const store = createStore(reducer);
-
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>

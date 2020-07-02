@@ -25,6 +25,7 @@ export class WifeDialogue extends Component {
             dialogue: "My husband and I were at dinner with his business partner and everything was... fine.  It was just a normal evening.",
             portrait: "wifeeyesclosed.PNG"
         })
+         this.props.addLocation()
     }
 
     about = () => {
@@ -57,8 +58,7 @@ export class WifeDialogue extends Component {
                 <br/><button onClick={this.about}>What can you tell me about your husband?</button>
                 <br/><button onClick={this.goodbye}>That's all for now, ma'am. Goodbye.</button>
             </div>
-{/*                                 <span>WIFE: "Oh, it's you, detective. Have you seen my other earring?  "</span>
- */}                        </div>
+                        </div>
                     </div>
 
 
@@ -80,6 +80,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addClue: () => {    
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Locate missing earring"}})
+        },
+        addLocation: () => {
+            return dispatch({type: 'ADD_LOCATION', payload: {location: "Restaurant"}})
         }
     }
 }
