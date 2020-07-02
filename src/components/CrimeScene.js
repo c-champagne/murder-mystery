@@ -50,6 +50,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addClue: () => {    
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Missing earring"}})
+        },
+        addLocation: () => {    
+            return dispatch({type: 'ADD_LOCATION', payload: {location: "Restaurant"}})
         }
     }
 }
