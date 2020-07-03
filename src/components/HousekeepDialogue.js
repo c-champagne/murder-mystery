@@ -12,32 +12,33 @@ export class HousekeepDialogue extends Component {
         }
     }
 
-    know = () => {
+    findClue = () => {
         this.setState({
-            dialogue: "Well, I know he has money. I think he's some big, investor or something? We spoke at the bar for a bit. He seemed nice.",
-            portrait: "actressneutral.PNG"
-        })
-    }
-
-    lastNight = () => {
-        this.setState({
-            dialogue: "See the victim?  More like HEAR him. He and his wife were arguing profusely at dinner. I think they were arguing about money... not that I was eavesdropping or anything, they were THAT loud about it.",
-            portrait: "actressannoyedhand.PNG"
+            dialogue: "I don't know if this is important to the case, but it was hidden under the mattress. People should know by now that is a terrible hiding spot.",
+            portrait: "housekeephappy.PNG"
         })
         this.props.addClue()
     }
 
-    about = () => {
+    findEarring = () => {
         this.setState({
-            dialogue: "Well, he.. was.. a very successful man.  He got along so well with everyone because he was a natural charmer. But he did seem stressed in recent months so I planned this cruise for us. I thought it would... help him.",
-            portrait: "wifeeyesclosed.PNG"
+            dialogue: "You know, I DID find a broken earring there this morning. I was going to try and fix it but if it's important to the case, you can have it.",
+            portrait: "housekeepclosed.PNG"
+        })
+        this.props.updateClue()
+    }
+
+    visitors = () => {
+        this.setState({
+            dialogue: "I recall seeing another gentleman.. I believe it was his business partner. He was knocking on the victim's door.  He seemed very insistant on getting in.  I didn't stick around to see what happened though.",
+            portrait: "housekeepannoyed.PNG"
         })
     }
 
     goodbye = () => {
         this.setState({
-            dialogue: "Bye bye, detective. I hope you catch the bad guy quickly! It's a little eerie being on this boat knowing they're still out there.",
-            portrait: "actresslaugh.PNG"
+            dialogue: "Goodbye, detective!",
+            portrait: "housekeepneutral.PNG"
         })
     }
 
@@ -45,16 +46,17 @@ export class HousekeepDialogue extends Component {
         return (
             <div className="dialogueContainer">
             <div className="speaker">
-                            <img src={`/images/characterModels/${this.state.portrait}`}/>
+                            <img src={`/images/characterModels/${this.state.portrait}`} alt="housekeeper"/>
                         </div>
                         <div className="leftBox">
                             <div className="textBox">
-                                <p>You go to the restaurant where the victim was last seen alive. There is another passenger here. She looks familiar...</p><br/>
+                                <p>You wander the ship and end up outside on the deck.  You spot the housekeeper that was in charge of cleaning the victim's room.</p><br/>
                                 <div>
                 {this.state.dialogue}
-                <br/><button onClick={this.lastNight}>Did you see the victim here last night?</button>
-                <br/><button onClick={this.know}>What do you know about the victim?</button>
-                <br/><button onClick={this.goodbye}>Thank you, miss. I will be on my way.</button>
+                <br/><button onClick={this.findClue}>Did you find anything that might be a clue?</button>
+                <br/><button onClick={this.findEarring}>Have you seen the victim's wife's earring?</button>
+                <br/><button onClick={this.visitors}>Was anyone else in the victim's room that evening?</button>
+                <br/><button onClick={this.goodbye}>Thank you, goodbye.</button>
             </div>
                         </div>
                     </div>
@@ -77,7 +79,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addClue: () => {    
-            return dispatch({type: 'ADD_CLUE', payload: {clue: "Victim argued with wife"}})
+            return dispatch({type: 'ADD_CLUE', payload: {clue: "Movie contract"}})
+        },
+        updateClue: () => {    
+            return dispatch({type: 'UPDATE_CLUE', payload: {clue: "Broken earring"}})
         }
     }
 }

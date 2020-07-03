@@ -14,24 +14,24 @@ export class ActressDialogue extends Component {
 
     know = () => {
         this.setState({
-            dialogue: "Well, I know he has money. I think he's some big, investor or something? We spoke at the bar for a bit. He seemed nice.",
+            dialogue: "Well, I know he has money. I think he's some big, investor or something? We spoke at the bar for a bit our first night on the boat. He seemed nice.",
             portrait: "actressneutral.PNG"
         })
     }
 
     lastNight = () => {
         this.setState({
-            dialogue: "See the victim?  More like HEAR him. He and his wife were arguing profusely at dinner. I think they were arguing about money... not that I was eavesdropping or anything, they were THAT loud about it.",
+            dialogue: "See the victim?  More like HEAR him. He and his wife were arguing profusely at dinner. The wife sounded really upset about him spending time with his business partner... not that I was eavesdropping or anything, they were THAT loud about it.",
             portrait: "actressannoyedhand.PNG"
         })
         this.props.addClue()
     }
-
-    about = () => {
+    dinner = () => {
         this.setState({
-            dialogue: "Well, he.. was.. a very successful man.  He got along so well with everyone because he was a natural charmer. But he did seem stressed in recent months so I planned this cruise for us. I thought it would... help him.",
-            portrait: "wifeeyesclosed.PNG"
+            dialogue: "Let's see... it was him, his wife, and then the victim's business partner showed up. If you want to talk to him, I think I last saw him out by the pool.",
+            portrait: "actressconcern.PNG"
         })
+        this.props.addLocation()
     }
 
     goodbye = () => {
@@ -45,7 +45,7 @@ export class ActressDialogue extends Component {
         return (
             <div className="dialogueContainer">
             <div className="speaker">
-                            <img src={`/images/characterModels/${this.state.portrait}`}/>
+                            <img src={`/images/characterModels/${this.state.portrait}`} alt="actress"/>
                         </div>
                         <div className="leftBox">
                             <div className="textBox">
@@ -54,10 +54,10 @@ export class ActressDialogue extends Component {
                 {this.state.dialogue}
                 <br/><button onClick={this.lastNight}>Did you see the victim here last night?</button>
                 <br/><button onClick={this.know}>What do you know about the victim?</button>
+                <br/><button onClick={this.dinner}>Who else was having dinner with the victim?</button>
                 <br/><button onClick={this.goodbye}>Thank you, miss. I will be on my way.</button>
             </div>
-{/*                                 <span>WIFE: "Oh, it's you, detective. Have you seen my other earring?  "</span>
- */}                        </div>
+                        </div>
                     </div>
 
 
@@ -79,6 +79,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addClue: () => {    
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Victim argued with wife"}})
+        },
+        addLocation: () => {    
+            return dispatch({type: 'ADD_LOCATION', payload: {location: "Pool"}})
         }
     }
 }

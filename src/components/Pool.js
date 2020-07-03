@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './Window.css';
-import Dialogue from './HousekeepDialogue';
-class CruiseDeck extends Component {
+import Dialogue from './PartnerDialogue';
+class Pool extends Component {
     render() {
         return (
             <div>
             <div className="background">
-                    <img src="/images/cruisedeck.jpg" alt="cruisedeck"/>
+                    <img src="/images/cruisepool.jpg" alt="pool"/>
                 </div>
                     <div className="dialogueBox">
                     <Dialogue/>
@@ -16,4 +16,4 @@ class CruiseDeck extends Component {
     }
 }
 
-export default CruiseDeck;
+export default Pool;

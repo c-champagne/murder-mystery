@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Window.css';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Item from './Item';
@@ -9,13 +9,11 @@ import CrimeScene from './CrimeScene';
 import Office from './Office';
 import Restaurant from './Restaurant';
 import CruiseDeck from './CruiseDeck';
+import Pool from './Pool';
 
 export class Window extends Component {
     
     render() {
-         /* const cluesJSX = this.props.clues.map ((clue, index) => {
-            return <Item key={index} {...clue}/>
-        }) */ 
         return (
             <div className="mainWindow">
                 <Switch>
@@ -37,6 +35,11 @@ export class Window extends Component {
                         exact
                         path="/cruisedeck"
                         component={CruiseDeck}>
+                    </Route>
+                    <Route
+                        exact
+                        path="/cruisepool"
+                        component={Pool}>
                     </Route>
                     
                 </Switch>

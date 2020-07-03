@@ -5,11 +5,11 @@ class Office extends Component {
         return (
             <div>
             <div className="background">
-                    <img src="/images/office.jpg"/>
+                    <img src="/images/office.jpg" alt="office"/>
                 </div>
                     <div className="dialogueBox">
                         <div className="speaker">
-                            <img src="/images/characterModels/placeholder.PNG"/>
+                            <img src="/images/characterModels/placeholder.PNG" alt="speaker"/>
                         </div>
                         <div className="leftBox">
                             <div className="textBox">
