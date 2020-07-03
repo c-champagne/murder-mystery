@@ -8,7 +8,7 @@ class Restaurant extends Component {
         return (
             <div>
             <div className="background">
-                    <img src="/images/restaurant.jpg"/>
+                    <img src="/images/restaurant.jpg" alt="restaurant"/>
                 </div>
                     <div className="dialogueBox">
                        <Dialogue/>

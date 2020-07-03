@@ -10,6 +10,7 @@ import {createStore} from 'redux';
 const initialState = {
   clues: [],
   locations: [],
+  persons: [],
   suspects: [],
   facts: [] 
 }
@@ -21,11 +22,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         clues: state.clues.concat(action.payload.clue)
       }
-      case 'ADD_LOCATION':
-        return {
-          ...state,
-          locations: state.locations.concat(action.payload.location)
-        }
+    case 'ADD_LOCATION':
+      return {
+        ...state,
+        locations: state.locations.concat(action.payload.location)
+      }
+    case 'UPDATE_CLUE':
+      return {
+        ...state,
+        clues: state.clues.filter(clues => clues !== "Locate missing earring").concat(action.payload.clue)
+      }
+    case 'ADD_SUSPECT':
+      return {
+        ...state,
+        suspects: state.suspects.concat(action.payload.suspects)
+      }
     default:
       return state;
   }

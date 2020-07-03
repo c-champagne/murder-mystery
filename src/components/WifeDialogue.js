@@ -46,7 +46,7 @@ export class WifeDialogue extends Component {
         return (
             <div className="dialogueContainer">
             <div className="speaker">
-                            <img src={`/images/characterModels/${this.state.portrait}`}/>
+                            <img src={`/images/characterModels/${this.state.portrait}`} alt="wife"/>
                         </div>
                         <div className="leftBox">
                             <div className="textBox">
