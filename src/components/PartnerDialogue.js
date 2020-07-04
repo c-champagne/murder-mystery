@@ -4,6 +4,10 @@ import {connect } from 'react-redux';
 
 export class PartnerDialogue extends Component {
 
+    componentDidMount() {
+        this.props.addPOI()
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -83,6 +87,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         addClueTwo: () => {    
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Actress asked him for money"}})
+        },
+        addPOI: () => {
+            return dispatch({type: 'ADD_POI', payload: {persons: "Business Partner"}})
         }
     }
 }

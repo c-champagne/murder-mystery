@@ -10,7 +10,7 @@ import {createStore} from 'redux';
 const initialState = {
   clues: [],
   locations: [],
-  persons: [],
+  persons: ["One", "two", "Three"],
   suspects: [],
   facts: [] 
 }
@@ -31,6 +31,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         clues: state.clues.filter(clues => clues !== "Locate missing earring").concat(action.payload.clue)
+      }
+    case 'ADD_POI':
+      return {
+        ...state,
+        persons: state.persons.concat(action.payload.persons)
       }
     case 'ADD_SUSPECT':
       return {

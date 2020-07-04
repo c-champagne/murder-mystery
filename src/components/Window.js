@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 
 import Item from './Item';
 import Locations from './Locations';
+import Suspects from './Suspects';
 import CrimeScene from './CrimeScene';
 import Office from './Office';
 import Restaurant from './Restaurant';
@@ -44,10 +45,15 @@ export class Window extends Component {
                     
                 </Switch>
                 <div className="controls">
-                        <div className="locationList"><Locations/></div>
+                        <div className="locationList">
+                            <Locations/>
+                        </div>
                         <div className="inventory">
                             <h2>Your Clues</h2>
                             <Item/>
+                        </div>
+                        <div className="suspectList">
+                            <Suspects/>
                         </div>
                 </div>
                     

@@ -4,6 +4,10 @@ import {connect } from 'react-redux';
 
 export class HousekeepDialogue extends Component {
 
+    componentDidMount() {
+        this.props.addPOI()
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -83,6 +87,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateClue: () => {    
             return dispatch({type: 'UPDATE_CLUE', payload: {clue: "Broken earring"}})
+        },
+        addPOI: () => {
+            return dispatch({type: 'ADD_POI', payload: {persons: "Housekeeper"}})
         }
     }
 }

@@ -4,6 +4,10 @@ import {connect } from 'react-redux';
 
 export class WifeDialogue extends Component {
 
+    componentDidMount() {
+        this.props.addPOI()
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -83,6 +87,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         addLocation: () => {
             return dispatch({type: 'ADD_LOCATION', payload: {location: "Restaurant"}})
+        },
+        addPOI: () => {
+            return dispatch({type: 'ADD_POI', payload: {persons: "Wife"}})
         }
     }
 }
