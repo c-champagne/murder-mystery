@@ -32,8 +32,7 @@ export class Suspects extends Component {
                 <h3>Persons of Interest</h3>
                    {this.props.persons.map((person)=> 
                    <ul>
-                   <ListItem key={person}
-                            value={person}/></ul>
+                   <ListItem key={person} value={person}/></ul>
                     )}
                      {knowPerson.includes("Wife") ? <button onClick={this.susWife}>Add Wife to Suspects</button> : ''}
                      {knowPerson.includes("Actress") ? <button onClick={this.susActress}>Add Actress to Suspects</button> : ''}
@@ -42,8 +41,7 @@ export class Suspects extends Component {
                 <br/>Suspects list here.
                 <ul>
                 {this.props.suspects.map((person)=> 
-                   <ListItem key={person}
-                            value={person}/>
+                   <ListItem key={person} value={person}/>
                     )}
                 </ul>
             </div>

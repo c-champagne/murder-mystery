@@ -5,12 +5,6 @@ import Dialogue from './WifeDialogue'
 
 class CrimeScene extends Component {
 
- /* componentDidMount() {
-    this.props.addClue()
-}  */
-
-
-
     render() {
         return (
             <div>
