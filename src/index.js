@@ -7,12 +7,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 
+let choices = ["Wife", "Business Partner", "Actress"]
+
 const initialState = {
   clues: [],
   locations: [],
   persons: [],
   suspects: [],
-  facts: [] 
+  murderer: [choices[Math.floor(Math.random()*3)]] 
 }
 
 const reducer = (state = initialState, action) => {
