@@ -89,7 +89,7 @@ const mapDispatchToProps = (dispatch) => {
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Actress asked him for money"}})
         },
         addPOI: () => {
-            return dispatch({type: 'ADD_POI', payload: {persons: "Business Partner"}})
+            return dispatch({type: 'ADD_POI', payload: {persons: "Partner"}})
         }
     }
 }
