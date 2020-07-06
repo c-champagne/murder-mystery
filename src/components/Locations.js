@@ -12,12 +12,12 @@ class Locations extends Component {
         }
     }
     
-componentDidUpdate(prevprops) {
+/* componentDidUpdate(prevprops) {
     if (this.props.locations !== prevprops.locations) {
         this.setState({newLocation: true})
         console.log("New location added")
     }
-}
+} */
 
     render() {
         const knowRestaurant = this.props.locations;

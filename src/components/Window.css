@@ -1,31 +1,27 @@
 .mainWindow {
-    overflow: hidden;
-    border: 5px blue solid
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: row;
 }
 
 .background img{
-    width: 100vw;
-    height: 65vh;
+    width: 65vw;
+    height: 75vh;
 }
 
 .dialogueBox {
-    border: 5px red solid;
-    /* position:relative;
-    bottom:300px;
-    left:0px; */
-    /* display: flex;
-    flex-direction: row; */
-    
+    display: flex;
+    flex-direction: row; 
 }
 
 .speaker img {
-    width: 200px;
+    width: 180px;
     height: auto;
 }
 
 .leftBox {
     background-color: rgba(128, 128, 128, 0.8);
-    border: 5px solid black;
+    /* border: 5px solid black; */
     width: 100%;
 }
 

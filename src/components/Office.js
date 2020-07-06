@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import './Window.css';
 import {connect } from 'react-redux';
-//import accuse from './Accuse';
 class Office extends Component {
-
-    constructor(props) {
-        super(props)
-        this.handleAccuseClick = this.handleAccuseClick.bind(this);
-    }
-
-handleAccuseClick(murderer) {
-    alert(this.props.murderer);
-}
 
 accuse = (suspect) => {
     if (suspect === this.props.murderer[0]) {
@@ -24,15 +14,6 @@ accuse = (suspect) => {
 }
 
     render() {
-
-        /* function accuse(suspect){
-            alert(suspect);
-            if (suspect === this.props.murderer) {
-                alert("You win!");
-            }else {
-                alert("You are wrong!")
-            }
-        } */
 
          let AccuseJSX = () => {
             return (
