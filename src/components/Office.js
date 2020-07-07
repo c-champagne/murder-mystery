@@ -1,50 +1,41 @@
 import React, { Component } from 'react';
 import './Window.css';
 import {connect } from 'react-redux';
-//import accuse from './Accuse';
 class Office extends Component {
-
-    constructor(props) {
-        super(props)
-        this.handleAccuseClick = this.handleAccuseClick.bind(this);
-    }
-
-handleAccuseClick(murderer) {
-    alert(this.props.murderer);
-}
 
 accuse = (suspect) => {
     if (suspect === this.props.murderer[0]) {
-        alert("You win!");
+        alert("You caught the murderer! Nice work, detective!");
     }else {
-        alert("You are wrong!")
+        alert("You are wrong! This person is innocent.")
         console.log(suspect)
         console.log(this.props.murderer[0])
     }
 }
 
     render() {
-
-        /* function accuse(suspect){
-            alert(suspect);
-            if (suspect === this.props.murderer) {
-                alert("You win!");
-            }else {
-                alert("You are wrong!")
-            }
-        } */
-
+        
          let AccuseJSX = () => {
             return (
                 <div>
                     <h2>Are you ready to charge a suspect?</h2>
                     <div>
-                        <button onClick={() => {this.accuse("Wife")}}>Accuse Wife</button>
-                        <button onClick={() => {this.accuse("Actress")}}>Accuse Actress</button>
-                        <button onClick={() => {this.accuse("Business Partner")}}>Accuse Business Partner</button>
+                        <button className="accuseButton" onClick={() => {this.accuse("Wife")}}>Accuse Wife</button>
+                        <button className="accuseButton" onClick={() => {this.accuse("Actress")}}>Accuse Actress</button>
+                        <button className="accuseButton" onClick={() => {this.accuse("Business Partner")}}>Accuse Business Partner</button>
                     </div>
                 </div>
             );
+        }
+
+        let IntroJSX = () => {
+            return (
+                <div>
+                    <p>You’re a detective on the cruise ship, Mystery of the Seas. What was supposed to be a relaxing vacation for you has quickly become more business than pleasure with the murder of one of the other passengers. You've set up this room as a makeshift office.</p>
+                    <p>Late last night, Mr. Everett Austin, a wealthy business investor, was found dead in his room from a single gunshot wound. His body was discovered by his wife, Mrs. Veronika Austin. At the time, Mrs. Austin was too distraught to answer questions.</p>
+                    <p>It is morning now and you are ready to return to the crime scene and begin your investigation in full. When you are ready to charge a suspect, return to your office.</p>
+                </div>
+            )
         }
 
 
@@ -56,11 +47,11 @@ accuse = (suspect) => {
                 </div>
                     <div className="dialogueBox">
                         <div className="speaker">
-                            <img src="/images/characterModels/placeholder.PNG" alt="speaker"/>
+                            <img src="/images/characterModels/detective.PNG" alt="speaker"/>
                         </div>
                         <div className="leftBox">
                             <div className="textBox">
-                             {oneSuspect[0] ? <AccuseJSX/>:  "You’re a detective on the cruise ship Beloved of the Seas.  What was supposed to be a relaxing vacation for you has quickly become more business than pleasure with the murder of one of the other passengers. Choose a location to begin your investigation."}   
+                             {oneSuspect[0] ? <AccuseJSX/> : <IntroJSX/>}   
                            
                             </div>
                         </div>

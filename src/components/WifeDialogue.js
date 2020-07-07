@@ -5,7 +5,10 @@ import {connect } from 'react-redux';
 export class WifeDialogue extends Component {
 
     componentDidMount() {
-        this.props.addPOI()
+        if (this.props.persons.includes("Wife")) {
+            return;
+        }else {
+        this.props.addPOI()}
     }
 
     constructor(props) {
@@ -21,7 +24,10 @@ export class WifeDialogue extends Component {
             dialogue: "Oh, yes.  I don't know if I lost it before or after... this happened.  Maybe one of the cleaning staff has seen it.",
             portrait: "wifefrownhand.PNG"
         })
-        this.props.addClue()
+        if (this.props.clues.includes("Locate missing earring")) {
+            return;
+        }else {
+        this.props.addClue()}
     }
 
     lastNight = () => {
@@ -49,21 +55,25 @@ export class WifeDialogue extends Component {
     render() {
         return (
             <div className="dialogueContainer">
-            <div className="speaker">
-                            <img src={`/images/characterModels/${this.state.portrait}`} alt="wife"/>
-                        </div>
-                        <div className="leftBox">
-                            <div className="textBox">
-                                <p>You arrive at the crime scene. The body has already been removed and the room has been cleaned. The murder victim's wife is here.</p><br/>
-                                <div>
-                {this.state.dialogue}
-                <br/><button onClick={this.lastNight}>Tell me about last night.</button>
-                <br/><button onClick={this.earring}>Are you missing an earring?</button>
-                <br/><button onClick={this.about}>What can you tell me about your husband?</button>
-                <br/><button onClick={this.goodbye}>That's all for now, ma'am. Goodbye.</button>
-            </div>
-                        </div>
+                <div className="speaker">
+                    <img src={`/images/characterModels/${this.state.portrait}`} alt="wife"/>
+                </div>
+                <div className="leftBox">
+                    <div className="textBox">
+                        <p>You arrive at the crime scene. The body has already been removed and the room has been cleaned. The murder victim's wife is here.</p><br/>
+                            <div className="stateContainer">
+                                {this.state.dialogue}
+                                
+                                <div className="buttonDiv">
+                                <br/>
+                                <br/><button className="dialogueButton" onClick={this.lastNight}>Tell me about last night.</button>
+                                <br/><button className="dialogueButton" onClick={this.earring}>Are you missing an earring?</button>
+                                <br/><button className="dialogueButton" onClick={this.about}>What can you tell me about your husband?</button>
+                                <br/><button className="dialogueButton" onClick={this.goodbye}>That's all for now, ma'am. Goodbye.</button>
+                                </div>
+                            </div>
                     </div>
+                </div>
 
 
             
@@ -71,8 +81,6 @@ export class WifeDialogue extends Component {
         )
     }
 }
-
-//export default Dialogue
 
 const mapStateToProps = (state) => {  
     return { 

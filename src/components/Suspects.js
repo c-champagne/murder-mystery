@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect } from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import './Item.css';
 
 export class Suspects extends Component { 
     
@@ -28,17 +28,18 @@ export class Suspects extends Component {
             return <li>{props.value}</li>
         }
         return (
-            <div>
-                <h3>Persons of Interest</h3>
+            <div className="textBG">
+                <span className="controlTitle">Persons of Interest</span>
                    {this.props.persons.map((person)=> 
                    <ul>
                    <ListItem key={person} value={person}/></ul>
                     )}
-                     {knowPerson.includes("Wife") ? <button onClick={this.susWife}>Add Wife to Suspects</button> : ''}
-                     {knowPerson.includes("Actress") ? <button onClick={this.susActress}>Add Actress to Suspects</button> : ''}
-                     {knowPerson.includes("Housekeeper") ? <button onClick={this.susHousekeeper}>Add Housekeeper to Suspects</button> : ''}
-                     {knowPerson.includes("Partner") ? <button onClick={this.susPartner}>Add Partner to Suspects</button> : ''}
-                <br/>Suspects list here.
+                     {knowPerson.includes("Wife") ? <button className='addSuspectButton' onClick={this.susWife}>Add Wife to Suspects</button> : ''}
+                     {knowPerson.includes("Actress") ? <button className='addSuspectButton' onClick={this.susActress}>Add Actress to Suspects</button> : ''}
+                     {knowPerson.includes("Housekeeper") ? <button className='addSuspectButton' onClick={this.susHousekeeper}>Add Housekeeper to Suspects</button> : ''}
+                     {knowPerson.includes("Partner") ? <button className='addSuspectButton' onClick={this.susPartner}>Add Partner to Suspects</button> : ''}
+                <hr/>
+                <span className="controlTitle">Your Suspects</span>
                 <ul>
                 {this.props.suspects.map((person)=> 
                    <ListItem key={person} value={person}/>

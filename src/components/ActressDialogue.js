@@ -5,7 +5,10 @@ import {connect } from 'react-redux';
 export class ActressDialogue extends Component {
 
     componentDidMount() {
-        this.props.addPOI()
+        if (this.props.persons.includes("Actress")) {
+            return;
+        }else {
+        this.props.addPOI()}
     }
 
     constructor(props) {
@@ -28,7 +31,11 @@ export class ActressDialogue extends Component {
             dialogue: "See the victim?  More like HEAR him. He and his wife were arguing profusely at dinner. The wife sounded really upset about him spending time with his business partner... not that I was eavesdropping or anything, they were THAT loud about it.",
             portrait: "actressannoyedhand.PNG"
         })
-        this.props.addClue()
+        if (this.props.clues.includes("Victim argued with wife")) {
+            return;
+        }else {
+        this.props.addClue()}
+
     }
     dinner = () => {
         this.setState({
@@ -56,10 +63,13 @@ export class ActressDialogue extends Component {
                                 <p>You go to the restaurant where the victim was last seen alive. There is another passenger here. She looks familiar...</p><br/>
                                 <div>
                 {this.state.dialogue}
-                <br/><button onClick={this.lastNight}>Did you see the victim here last night?</button>
-                <br/><button onClick={this.know}>What do you know about the victim?</button>
-                <br/><button onClick={this.dinner}>Who else was having dinner with the victim?</button>
-                <br/><button onClick={this.goodbye}>Thank you, miss. I will be on my way.</button>
+                <div className="buttonDiv">
+                                <br/>
+                <br/><button className="dialogueButton" onClick={this.lastNight}>Did you see the victim here last night?</button>
+                <br/><button className="dialogueButton" onClick={this.know}>What do you know about the victim?</button>
+                <br/><button className="dialogueButton" onClick={this.dinner}>Who else was having dinner with the victim?</button>
+                <br/><button className="dialogueButton" onClick={this.goodbye}>Thank you, miss. I will be on my way.</button>
+                </div>
             </div>
                         </div>
                     </div>
@@ -70,8 +80,6 @@ export class ActressDialogue extends Component {
         )
     }
 }
-
-//export default Dialogue
 
 const mapStateToProps = (state) => {  
     return { 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './Window.css';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, 
+        Route, 
+        Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Item from './Item';
@@ -15,6 +17,14 @@ import Pool from './Pool';
 export class Window extends Component {
     
     render() {
+
+        const NoMatch = ({location}) => {
+            return <div>
+                <img src="/images/404splash.jpg" alt="splash"/>
+                    <h4 style={{color:'white', paddingLeft: '3em'}}>404! You fell off the boat looking for {location.pathname}</h4>;
+                    <span style={{color:'white', paddingLeft: '3em'}}><Link to="/">Go back to your office to dry off</Link></span>
+                </div>
+          }
         return (
             <div className="mainWindow">
                 <Switch>
@@ -42,14 +52,17 @@ export class Window extends Component {
                         path="/cruisepool"
                         component={Pool}>
                     </Route>
+                    <Route 
+                        component={NoMatch}>
+                    </Route>
                     
                 </Switch>
                 <div className="controls">
+                    <img src="/images/MysteryatSeaLogo.png" alt="game logo"/>
                         <div className="locationList">
                             <Locations/>
                         </div>
                         <div className="inventory">
-                            <h2>Your Clues</h2>
                             <Item/>
                         </div>
                         <div className="suspectList">

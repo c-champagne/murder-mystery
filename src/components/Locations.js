@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect } from 'react-redux';
+import './Item.css';
 
 class Locations extends Component {
 
@@ -12,19 +13,20 @@ class Locations extends Component {
         }
     }
     
-componentDidUpdate(prevprops) {
+/* componentDidUpdate(prevprops) {
     if (this.props.locations !== prevprops.locations) {
         this.setState({newLocation: true})
         console.log("New location added")
     }
-}
+} */
 
     render() {
         const knowRestaurant = this.props.locations;
         const oneClue = this.props.clues;
 
         return (
-            <div>
+            <div className="textBG">
+                <span className="controlTitle">Relevant Locations</span>
                 <ul>
                 {this.state.newLocation ? 'New location added!' : ''}
                      <li><Link to="/crimescene">Go to crime scene</Link></li>

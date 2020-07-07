@@ -8,16 +8,13 @@ class CrimeScene extends Component {
     render() {
         return (
             <div>
-            <div className="background">
-                    <img src="/images/bedroom.jpg" alt="bedroom" useMap="#bedroom"/>
-                    <map name="bedroom">
-                        <area shape="rect" coords="0, 0, 1680, 1020" alt="bed" href="#"/>
-                    </map>
+                <div className="background">
+                    <img src="/images/bedroom.jpg" alt="bedroom"/>
                 </div>
-                    <div className="dialogueBox">
+                <div className="dialogueBox">
                     <Dialogue/>
-                    </div>
-                    </div>
+                </div>
+            </div>
         )
     }
 }
