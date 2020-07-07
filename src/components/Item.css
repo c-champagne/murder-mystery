@@ -1,0 +1,48 @@
+.textBG {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: seashell;
+    padding: 1em;
+}
+
+.clue {
+    font-size: 15px;
+  }
+
+  .controlTitle {
+      font-size: larger;
+  }
+
+  a:link {
+    color: white
+}
+
+a:visited {
+    color: red;
+}
+
+.addSuspectButton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+	background-color:#ffc477;
+	border-radius:6px;
+	border:1px solid #eeb44f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-shadow:0px 1px 0px #cc9f52;
+}
+.addSuspectButton:hover {
+	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
+	background-color:#fb9e25;
+}
+.addSuspectButton:active {
+	position:relative;
+	top:1px;
+}

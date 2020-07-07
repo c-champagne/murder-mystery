@@ -5,7 +5,10 @@ import {connect } from 'react-redux';
 export class PartnerDialogue extends Component {
 
     componentDidMount() {
-        this.props.addPOI()
+        if (this.props.persons.includes("Partner")) {
+            return;
+        }else {
+        this.props.addPOI()}
     }
 
     constructor(props) {
@@ -28,7 +31,10 @@ export class PartnerDialogue extends Component {
             dialogue: "We shared the business evenly, 50/50. Now that he is gone, I will take over his portion. It's what he wanted; his wife wouldn't know the first thing about running the company.",
             portrait: "partnerneutral.PNG"
         })
-        this.props.addClue()
+        if (this.props.clues.includes("Partner has full business ownership")) {
+            return;
+        }else {
+        this.props.addClue()}
     }
 
     contract = () => {
@@ -36,7 +42,10 @@ export class PartnerDialogue extends Component {
             dialogue: "Oh, that. That actress.. the one from Knights Without Time on Netflix? Ridiculous movie, really.  Anyway, she's been trying to convince my partner to fund some movie of hers. She seemed a little desperate. I had finally convinced him to turn her away. He's got a soft spot for cheesy rom-coms.",
             portrait: "partnerneutral.PNG"
         })
-        this.props.addClueTwo()
+        if (this.props.clues.includes("Actress asked victim for money")) {
+            return;
+        }else {
+        this.props.addClueTwo()}
     }
 
     goodbye = () => {
@@ -57,10 +66,13 @@ export class PartnerDialogue extends Component {
                                 <p>You head to the cruise ship's pool and spot a man matching the description the actress gave you.  You approach him.</p><br/>
                                 <div>
                 {this.state.dialogue}
-                <br/><button onClick={this.looking}>Why would I be looking for you?</button>
-                <br/><button onClick={this.business}>What will happen to the victim's business?</button>
-                <br/><button onClick={this.contract}>Do you know anything about this movie contract?</button>
-                <br/><button onClick={this.goodbye}>Thank you, goodbye.</button>
+                <div className="buttonDiv">
+                                <br/>
+                <br/><button className="dialogueButton" onClick={this.looking}>Why would I be looking for you?</button>
+                <br/><button className="dialogueButton" onClick={this.business}>What will happen to the victim's business?</button>
+                <br/><button className="dialogueButton" onClick={this.contract}>Do you know anything about this movie contract?</button>
+                <br/><button className="dialogueButton" onClick={this.goodbye}>Thank you, goodbye.</button>
+                </div>
             </div>
                         </div>
                     </div>
@@ -71,8 +83,6 @@ export class PartnerDialogue extends Component {
         )
     }
 }
-
-//export default Dialogue
 
 const mapStateToProps = (state) => {  
     return { 
@@ -86,7 +96,7 @@ const mapDispatchToProps = (dispatch) => {
             return dispatch({type: 'ADD_CLUE', payload: {clue: "Partner has full business ownership"}})
         },
         addClueTwo: () => {    
-            return dispatch({type: 'ADD_CLUE', payload: {clue: "Actress asked him for money"}})
+            return dispatch({type: 'ADD_CLUE', payload: {clue: "Actress asked victim for money"}})
         },
         addPOI: () => {
             return dispatch({type: 'ADD_POI', payload: {persons: "Partner"}})

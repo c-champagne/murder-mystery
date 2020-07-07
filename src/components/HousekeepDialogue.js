@@ -5,7 +5,10 @@ import {connect } from 'react-redux';
 export class HousekeepDialogue extends Component {
 
     componentDidMount() {
-        this.props.addPOI()
+        if (this.props.persons.includes("Housekeeper")) {
+            return;
+        }else {
+        this.props.addPOI()}
     }
 
     constructor(props) {
@@ -21,7 +24,10 @@ export class HousekeepDialogue extends Component {
             dialogue: "I don't know if this is important to the case, but it was hidden under the mattress. People should know by now that is a terrible hiding spot.",
             portrait: "housekeephappy.PNG"
         })
-        this.props.addClue()
+        if (this.props.clues.includes("Movie contract")) {
+            return;
+        }else {
+        this.props.addClue()}
     }
 
     findEarring = () => {
@@ -29,7 +35,10 @@ export class HousekeepDialogue extends Component {
             dialogue: "You know, I DID find a broken earring there this morning. I was going to try and fix it but if it's important to the case, you can have it.",
             portrait: "housekeepclosed.PNG"
         })
-        this.props.updateClue()
+        if (this.props.clues.includes("Broken earring")) {
+            return;
+        }else {
+        this.props.updateClue()}
     }
 
     visitors = () => {
@@ -57,10 +66,13 @@ export class HousekeepDialogue extends Component {
                                 <p>You wander the ship and end up outside on the deck.  You spot the housekeeper that was in charge of cleaning the victim's room.</p><br/>
                                 <div>
                 {this.state.dialogue}
-                <br/><button onClick={this.findClue}>Did you find anything that might be a clue?</button>
-                <br/><button onClick={this.findEarring}>Have you seen the victim's wife's earring?</button>
-                <br/><button onClick={this.visitors}>Was anyone else in the victim's room that evening?</button>
-                <br/><button onClick={this.goodbye}>Thank you, goodbye.</button>
+                <div className="buttonDiv">
+                                <br/>
+                <br/><button className="dialogueButton" onClick={this.findClue}>Did you find anything that might be a clue?</button>
+                <br/><button className="dialogueButton" onClick={this.findEarring}>Have you seen the victim's wife's earring?</button>
+                <br/><button className="dialogueButton" onClick={this.visitors}>Was anyone else in the victim's room that evening?</button>
+                <br/><button className="dialogueButton" onClick={this.goodbye}>Thank you, goodbye.</button>
+                </div>
             </div>
                         </div>
                     </div>
@@ -72,7 +84,6 @@ export class HousekeepDialogue extends Component {
     }
 }
 
-//export default Dialogue
 
 const mapStateToProps = (state) => {  
     return { 

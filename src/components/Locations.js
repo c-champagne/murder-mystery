@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {connect } from 'react-redux';
+import './Item.css';
 
 class Locations extends Component {
 
@@ -24,7 +25,8 @@ class Locations extends Component {
         const oneClue = this.props.clues;
 
         return (
-            <div>
+            <div className="textBG">
+                <span className="controlTitle">Relevant Locations</span>
                 <ul>
                 {this.state.newLocation ? 'New location added!' : ''}
                      <li><Link to="/crimescene">Go to crime scene</Link></li>
