@@ -1,5 +1,20 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+This game was created in two weeks with a focus on implementing React and Redux.
+
+Mystery at Sea is a web-based murder mystery type game.  The player can navigate to different areas and speak to the different characters. As the player explores, they will learn clues and open up new locations.  The player should use their own judgement to determine if a character should be considered a “suspect” and add them to their list.  To end the game, the player returns to the office and accuses one of the suspects. Currently, on start up the game will randomly choose one of three characters to be the murderer.
+
+## Code Used
+
+Mystery at Sea uses React and Redux to display a dynamic game screen with multiple interacting parts. The main component handles the routing and acts as a frame for the location image, dialogue boxes, and the controls section on the right.
+
+Each location is a component and is loaded based on the player’s current path.
+
+Each set of character dialogue is a component and these components use local state to allow for changing dialogue and character images.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
